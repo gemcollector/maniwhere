@@ -1,5 +1,5 @@
-task_name='franka_dual_dex'
-frames=601000
+task_name='ur5_lift'
+frames=801000
 feature_dim=256
 aux_lr=8e-5
 use_wandb=False
@@ -11,7 +11,7 @@ use_traj=False
 
 CUDA_VISIBLE_DEVICES=0  python camera_train.py \
                             task=${task_name} \
-                            seed=5 \
+                            seed=1 \
                             use_wandb=${use_wandb} \
                             num_train_frames=${frames} \
                             save_snapshot=${save_snapshot}  \
