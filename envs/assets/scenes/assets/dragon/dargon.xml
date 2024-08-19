@@ -1,0 +1,58 @@
+<mujoco model="dargon">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <texture type="2d" name="dragon" file="dragon.png"/>
+    <material name="dargon_0" texture="dragon" specular="0.0" shininess="0.5"/>
+    <mesh file="dargon.obj"/>
+    <mesh file="dargon_collision_0.obj"/>
+    <mesh file="dargon_collision_1.obj"/>
+    <mesh file="dargon_collision_2.obj"/>
+    <mesh file="dargon_collision_3.obj"/>
+    <mesh file="dargon_collision_4.obj"/>
+    <mesh file="dargon_collision_5.obj"/>
+    <mesh file="dargon_collision_6.obj"/>
+    <mesh file="dargon_collision_7.obj"/>
+    <mesh file="dargon_collision_8.obj"/>
+    <mesh file="dargon_collision_9.obj"/>
+    <mesh file="dargon_collision_10.obj"/>
+    <mesh file="dargon_collision_11.obj"/>
+    <mesh file="dargon_collision_12.obj"/>
+    <mesh file="dargon_collision_13.obj"/>
+    <mesh file="dargon_collision_14.obj"/>
+    <mesh file="dargon_collision_15.obj"/>
+    <mesh file="dargon_collision_16.obj"/>
+    <mesh file="dargon_collision_17.obj"/>
+    <mesh file="dargon_collision_18.obj"/>
+  </asset>
+  <worldbody>
+    <body name="dargon">
+      <geom material="dargon_0" mesh="dargon" class="visual"/>
+      <geom mesh="dargon_collision_0" rgba="0.9928750847893651 0.4890477901561415 0.3103408783191365 1" class="collision"/>
+      <geom mesh="dargon_collision_1" rgba="0.6156002194139181 0.6419735611846575 0.3433017540721812 1" class="collision"/>
+      <geom mesh="dargon_collision_2" rgba="0.4546952572539569 0.8542213506483708 0.9957741565448063 1" class="collision"/>
+      <geom mesh="dargon_collision_3" rgba="0.08162418972199603 0.019922194209735622 0.1474613453326563 1" class="collision"/>
+      <geom mesh="dargon_collision_4" rgba="0.7107556416023058 0.5849302307015951 0.3886684431369385 1" class="collision"/>
+      <geom mesh="dargon_collision_5" rgba="0.882164440510648 0.038052539224581516 0.8099820050041631 1" class="collision"/>
+      <geom mesh="dargon_collision_6" rgba="0.055769985433132274 0.4153159306528331 0.5913273254931057 1" class="collision"/>
+      <geom mesh="dargon_collision_7" rgba="0.574671988677119 0.20258070701156183 0.2533259010228087 1" class="collision"/>
+      <geom mesh="dargon_collision_8" rgba="0.6836926973388177 0.7435625890108406 0.30139626010227016 1" class="collision"/>
+      <geom mesh="dargon_collision_9" rgba="0.007158067757983222 0.2567582639937953 0.5053464483757746 1" class="collision"/>
+      <geom mesh="dargon_collision_10" rgba="0.10614076714132825 0.32894877288933144 0.9631365288970779 1" class="collision"/>
+      <geom mesh="dargon_collision_11" rgba="0.8517235565951385 0.39834889664109785 0.8669049141366545 1" class="collision"/>
+      <geom mesh="dargon_collision_12" rgba="0.27159781133145644 0.9478040476039628 0.39976578362609005 1" class="collision"/>
+      <geom mesh="dargon_collision_13" rgba="0.6186387694773356 0.532856397023139 0.6873373555570884 1" class="collision"/>
+      <geom mesh="dargon_collision_14" rgba="0.2896321943885982 0.7106323062229154 0.415347253901182 1" class="collision"/>
+      <geom mesh="dargon_collision_15" rgba="0.896166790999301 0.5561110581690948 0.17450929744750177 1" class="collision"/>
+      <geom mesh="dargon_collision_16" rgba="0.004647452393080287 0.15643443430274406 0.812920314640311 1" class="collision"/>
+      <geom mesh="dargon_collision_17" rgba="0.43008948903436384 0.08498336573335241 0.8901318432400959 1" class="collision"/>
+      <geom mesh="dargon_collision_18" rgba="0.19067447366850387 0.5852766578619936 0.35493772762319886 1" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>

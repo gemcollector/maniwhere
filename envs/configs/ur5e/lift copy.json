@@ -1,0 +1,208 @@
+{
+    "env": "ur5e_lift",
+    "xml": "assets/scenes/scene_lift.xml",
+    "assets": [
+        "assets/scenes/basic_scene.xml",
+        "assets/universal_robots_ur5e/ur5e_with_hand.xml",
+        "assets/scenes/assets",
+        "assets/universal_robots_ur5e/assets",
+        "assets/robotiq_2f85/assets"
+    ],
+    "scheduler": {
+        "type": "ExpScheduler",
+        "gamma": 0.995,
+        "latency": 150
+    },
+    "scheduler": {
+        "type": "ConstantScheduler",
+        "gamma": 1
+    },
+    "control_params": {
+        "action_delay": {
+            "min_val": 0,
+            "max_val": 2,
+            "enable": true
+        },
+        "control_timestep": {
+            "min_val": 0.016,
+            "max_val": 0.024,
+            "enable": true
+        }
+    },
+    "physics_params": {
+        "geom": [
+            {
+                "identifier": ["left_pad_box1", "left_pad_box2", "right_pad_box1", "right_pad_box2"],
+                "attr": "friction",
+                "default_val": [0.45, 0.1, 0.005],
+                "min_val": [0.3, 0.1, 0.005],
+                "max_val": [0.6, 0.1, 0.005],
+                "consistent": true
+            },
+            {
+                "identifier": "table_top",
+                "attr": "friction",
+                "default_val": [1, 0.005, 0.0001],
+                "min_coff": 0.9,
+                "max_coff": 1.1,
+                "consistent": true
+            },
+            {
+                "identifier": "object_box",
+                "attr": "friction",
+                "default_val": [1, 0.005, 0.0001],
+                "min_coff": 0.9,
+                "max_coff": 1.1,
+                "consistent": true
+            }
+        ],
+        "joint": [
+            {
+                "identifier": [
+                    "shoulder_pan_joint", "shoulder_lift_joint", "elbow_joint", 
+                    "wrist_1_joint", "wrist_2_joint", "wrist_3_joint"
+                ],
+                "attr": "armature",
+                "default_val": 0.1,
+                "min_coff": 0.9,
+                "max_coff": 1.1,
+                "consistent": true
+            },
+            {
+                "identifier": ["right_driver_joint", "left_driver_joint"],
+                "attr": "armature",
+                "default_val": 0.005,
+                "min_coff": 0.9,
+                "max_coff": 1.1,
+                "consistent": true
+            },
+            {
+                "identifier": ["shoulder_pan_joint"],
+                "attr": "damping",
+                "default_val": 360,
+                "min_coff": 0.9,
+                "max_coff": 1.1,
+                "consistent": true
+            },
+            {
+                "identifier": ["shoulder_lift_joint"],
+                "attr": "damping",
+                "default_val": 280,
+                "min_coff": 0.9,
+                "max_coff": 1.1,
+                "consistent": true
+            },
+            {
+                "identifier": ["elbow_joint"],
+                "attr": "damping",
+                "default_val": 250,
+                "min_coff": 0.9,
+                "max_coff": 1.1,
+                "consistent": true
+            },
+            {
+                "identifier": ["wrist_1_joint", "wrist_2_joint", "wrist_3_joint"],
+                "attr": "damping",
+                "default_val": 15,
+                "min_coff": 0.9,
+                "max_coff": 1.1,
+                "consistent": true
+            },
+            {
+                "identifier": ["right_driver_joint", "left_driver_joint"],
+                "attr": "damping",
+                "default_val": 0.1,
+                "min_coff": 0.9,
+                "max_coff": 1.1,
+                "consistent": true
+            },
+            {
+                "identifier": ["right_spring_link_joint", "left_spring_link_joint"],
+                "attr": "damping",
+                "default_val": 0.00125,
+                "min_coff": 0.9,
+                "max_coff": 1.1,
+                "consistent": true
+            }
+        ],
+        "material": [
+            {
+                "identifier": "black_ur5e",
+                "attr": "rgba",
+                "default_val": [0.033, 0.033, 0.033, 1],
+                "min_val": [0, 0, 0, 1],
+                "max_val": [0.05, 0.05, 0.05, 1]
+            },
+            {
+                "identifier": "jointgray",
+                "attr": "rgba",
+                "default_val": [0.278, 0.278, 0.278, 1],
+                "min_val": [0.252, 0.252, 0.252, 1],
+                "max_val": [0.305, 0.305, 0.305, 1]
+            },
+            {
+                "identifier": "linkgray",
+                "attr": "rgba",
+                "default_val": [0.82, 0.82, 0.82, 1],
+                "min_val": [0.738, 0.738, 0.738, 1],
+                "max_val": [0.902, 0.902, 0.902, 1]
+            },
+            {
+                "identifier": "urblue",
+                "attr": "rgba",
+                "default_val": [0.49, 0.678, 0.8, 1],
+                "min_val": [0.449, 0.610, 0.720, 1],
+                "max_val": [0.539, 0.746, 0.880, 1]
+            }
+        ],
+        "light": [
+            {
+                "attr": "ambient",
+                "default_val": [0.3, 0.3, 0.3],
+                "min_val": [0.27, 0.27, 0.27],
+                "max_val": [0.33, 0.33, 0.33],
+                "enable": false
+            },
+            {
+                "attr": "diffuse",
+                "default_val": [0.7, 0.7, 0.7],
+                "min_coff": 0.9,
+                "max_coff": 1.1,
+                "enable": false
+            },
+            {
+                "attr": "specular",
+                "default_val": [0.3, 0.3, 0.3],
+                "min_coff": 0.9,
+                "max_coff": 1.1,
+                "enable": false
+            }
+        ],
+        "camera": [
+            {
+                "identifier": "angled_cam",
+                "attr": "pos",
+                "default_val": [1.809, -0.389, 0.770],
+                "min_val": [1.759, -0.439, 0.720],
+                "max_val": [1.859, -0.339, 0.820],
+                "enable": true
+            },
+            {
+                "identifier": "angled_cam",
+                "attr": "xyaxes",
+                "default_val": [0.288, 0.958, -0.000, -0.399, 0.120, 0.909],
+                "min_coff": 0.95,
+                "max_coff": 1.05,
+                "enable": true
+            },
+            {
+                "identifier": "angled_cam",
+                "attr": "fovy",
+                "default_val": 42,
+                "min_val": 39,
+                "max_val": 45,
+                "enable": true
+            }
+        ]
+    }
+}

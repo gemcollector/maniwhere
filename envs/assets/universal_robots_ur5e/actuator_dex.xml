@@ -1,0 +1,27 @@
+<mujocoinclude>
+  <actuator>
+    <position class="size3" name="shoulder_pan" joint="shoulder_pan_joint"/>
+    <position class="size3" name="shoulder_lift" joint="shoulder_lift_joint"/>
+    <position class="size3_limited" name="elbow" joint="elbow_joint"/>
+    <position class="size1" name="wrist_1" joint="wrist_1_joint"/>
+    <position class="size1" name="wrist_2" joint="wrist_2_joint"/>
+    <position class="size1" name="wrist_3" joint="wrist_3_joint"/>
+    
+    <position name="ffa0" joint="ffj0" class="base"/>
+    <position name="ffa1" joint="ffj1" class="proximal"/>
+    <position name="ffa2" joint="ffj2" class="medial"/>
+    <position name="ffa3" joint="ffj3" class="distal"/>
+    <position name="mfa0" joint="mfj0" class="base"/>
+    <position name="mfa1" joint="mfj1" class="proximal"/>
+    <position name="mfa2" joint="mfj2" class="medial"/>
+    <position name="mfa3" joint="mfj3" class="distal"/>
+    <position name="rfa0" joint="rfj0" class="base"/>
+    <position name="rfa1" joint="rfj1" class="proximal"/>
+    <position name="rfa2" joint="rfj2" class="medial"/>
+    <position name="rfa3" joint="rfj3" class="distal"/>
+    <position name="tha0" joint="thj0" class="thumb_base"/>
+    <position name="tha1" joint="thj1" class="thumb_proximal"/>
+    <position name="tha2" joint="thj2" class="thumb_medial"/>
+    <position name="tha3" joint="thj3" class="thumb_distal"/>
+  </actuator>
+</mujocoinclude>

@@ -1,0 +1,5 @@
+defaults:
+  - new_medium
+  - _self_
+
+task_name: xarm_close_dex

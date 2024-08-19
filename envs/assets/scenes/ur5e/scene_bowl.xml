@@ -1,0 +1,65 @@
+<mujoco model="ur5e_push_scene">
+
+  <include file="basic_scene.xml"/>
+  <include file="ur5e_with_hand.xml"/>
+
+  <option impratio="100"/>
+
+  <default>
+    <default class="grab">
+      <!-- <joint limited="false" margin="0.01" armature="0.001" damping="0" frictionloss="0.001" /> -->
+      <geom type="mesh" contype="0" conaffinity="0"/>
+      <!-- <site size="0.005 0 0" rgba="0.4 0.9 0.4 1" /> -->
+      <default class="object_col">
+        <geom type="mesh" density="1250" contype="1" conaffinity="1" friction="1 0.5 0.01" margin="0.0005" condim="4" rgba=".3 .4 .5 1" group="3"/>
+      </default>
+    </default>
+  </default>
+
+  <asset>
+    <mesh name="bowl" file="bowl.stl"/>
+    <mesh name="contact0" file="contact0.stl"/>
+    <mesh name="contact1" file="contact1.stl"/>
+    <mesh name="contact2" file="contact2.stl"/>
+    <mesh name="contact3" file="contact3.stl"/>
+    <mesh name="contact4" file="contact4.stl"/>
+    <mesh name="contact5" file="contact5.stl"/>
+    <mesh name="contact6" file="contact6.stl"/>
+    <mesh name="contact7" file="contact7.stl"/>
+    <mesh name="contact8" file="contact8.stl"/>
+    <mesh name="contact9" file="contact9.stl"/>
+    <mesh name="contact10" file="contact10.stl"/>
+    <mesh name="contact11" file="contact11.stl"/>
+
+    <material name="bowl_visual" rgba="0.65 0.65 0.55 1" specular="0.5" shininess="0.5"/>
+  </asset>
+
+  <worldbody>
+    <body name="bowl" pos="0.7 -0.15 0.041">
+      <geom name="bowl_visual" mesh="bowl" class="grab" material="bowl_visual"/>
+      <geom name="bowl_contact0" mesh="contact0" class="object_col"/>
+      <geom name="bowl_contact1" mesh="contact1" class="object_col"/>
+      <geom name="bowl_contact2" mesh="contact2" class="object_col"/>
+      <geom name="bowl_contact3" mesh="contact3" class="object_col"/>
+      <geom name="bowl_contact4" mesh="contact4" class="object_col"/>
+      <geom name="bowl_contact5" mesh="contact5" class="object_col"/>
+      <geom name="bowl_contact6" mesh="contact6" class="object_col"/>
+      <geom name="bowl_contact7" mesh="contact7" class="object_col"/>
+      <geom name="bowl_contact8" mesh="contact8" class="object_col"/>
+      <geom name="bowl_contact9" mesh="contact9" class="object_col"/>
+      <geom name="bowl_contact10" mesh="contact10" class="object_col"/>
+      <geom name="bowl_contact11" mesh="contact11" class="object_col"/>
+
+      <freejoint name="bowl_anchor"/>
+      <site name="bowl_site" pos="0 0 0" size="0.001" rgba="0 0 0 0"/>
+    </body>
+
+    <body name="object" pos="0.7 0.15 0.026">
+      <!-- <inertial pos="0 0 0.016" mass="0.0334234" diaginertia="5.70425e-06 5.70425e-06 5.70425e-06"/> -->
+      <geom name="object_box" pos="0 0 0" type="box" size="0.025 0.025 0.025" density="1250" rgba="1 0 0 1"/>
+      <freejoint name="object_anchor"/>
+      <site name="object_site" pos="0 0 0" size="0.001" rgba="0 0 0 0"/>
+    </body>
+  </worldbody>
+
+</mujoco>

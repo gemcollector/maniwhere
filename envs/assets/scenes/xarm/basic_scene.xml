@@ -1,0 +1,54 @@
+<mujoco model="xarm_scene">
+
+  <compiler angle="radian" meshdir="assets" texturedir="assets" autolimits="true"/>
+
+  <statistic center="0.3 0 0.4" extent="0.8"/>
+
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6"  ambient="0.1 0.1 0.1" specular="0 0 0"/>
+    <rgba haze="0.15 0.25 0.35 1"/>
+    <global azimuth="120" elevation="-20"/>
+  </visual>
+
+  <default>
+    <default class="visual_scene">
+      <geom contype="0" conaffinity="0"/>
+    </default>
+  </default>
+
+  <asset>
+    <texture type="2d" name="floor" file="carpet.png" width="256" height="256"/>
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512"
+        height="3072"/>
+    <!-- <material name="table" rgba="0.85 0.65 0.36 1"/> -->
+    <material name="table" rgba="0.7 0.52 0.25 1"/>
+    <material name="floor" texture="floor"/>
+    <!-- <material name="floor" rgba="0.369 0.369 0.369 1"/> -->
+    <material name="seat_mat" rgba="0.533 0.529 0.514 1" specular="0.5" shininess="0.25"/>
+  </asset>
+
+  <worldbody>
+    <light pos="0.6 -0.1 1.5" dir="0 0.3 -1" directional="true" castshadow="false"/>
+    
+    <geom name="floor" size="0 0 0.05" pos="0 0 -0.42" type="plane" material="floor"/>
+    
+    <!-- <geom name="wall1" size="2 2 0.005" pos="-0.2 0 0" type="box" quat="0 1 0 1" rgba="1 1 1 1"/>
+    <geom name="wall2" size="2 2 0.005" pos="0 0.55 0" type="box" euler="1.57 1.0 0" rgba="1 1 1 1"/>
+    <geom name="wall3" size="2 2 0.005" pos="0 -0.55 0" type="box" euler="1.57 -1.0 0" rgba="1 1 1 1"/> -->
+
+    <!-- The desktop center is (0, 0, 0) -->
+    <body name="table" pos="0 0 0">
+      <geom name="table_top" type="cylinder" size="0.425 0.01" pos="0 0 -0.01" material="table" class="visual_scene"/>
+      <geom name="table_top_col" type="box" size="0.425 0.425 0.05" pos="0 0 -0.05" group="3" material="table"/>
+      <geom name="table_mid" type="cylinder" size="0.04 0.18" pos="0 0 -0.2" material="table" class="visual_scene"/>
+      <geom name="table_bottom" type="cylinder" size="0.2 0.02" pos="0 0 -0.4" material="table" class="visual_scene"/>
+    </body>
+
+    <!-- <body name="viewpoint" pos="0 0.0 0.1"/>
+
+    <camera name="fix_cam" mode="targetbody" target="viewpoint" pos="0 1.1 0.7" fovy="42"/>
+    <camera name="track_cam" mode="targetbody" target="viewpoint" pos="0 1.1 0.7" fovy="42"/> -->
+
+  </worldbody>
+
+</mujoco>

@@ -1,0 +1,17 @@
+<mujocoinclude>
+  <worldbody>
+    <body name="mocap" mocap="true" pos="0.738 0 0.15" euler="0 0 1.57">
+    <!-- <body name="mocap" mocap="true" pos="0.555 0 0.454" euler="0 0 1.57"> -->
+      <!-- <geom pos="0 0 0" size="0.01 0.02 0.04" type="box" rgba="1 0 0 1" conaffinity="0" contype="0"/> -->
+    </body>
+  </worldbody>
+
+  <actuator>
+    <general class="2f85" name="fingers_actuator" tendon="split" forcerange="-5 5"
+      ctrlrange="0 255" gainprm="0.3137255 0 0" biasprm="0 -100 -10"/>
+  </actuator>
+
+  <equality>
+    <weld name="weld" body1="mocap" body2="tcp_center" relpose="0 0 0 0 0 1 0" solimp="0.95 0.99 0.001" solref="0.005 1"/>
+  </equality>
+</mujocoinclude>

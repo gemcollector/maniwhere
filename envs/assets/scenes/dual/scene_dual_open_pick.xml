@@ -1,0 +1,60 @@
+<mujoco model="franka_dual_dex_scene">
+
+  <include file="basic_scene.xml"/>
+  <include file="panda_with_dex.xml"/>
+  <include file="panda_dual.xml"/>
+
+  <option cone="elliptic" impratio="100"/>
+
+  <default>
+    <default class="box">
+      <geom type="box" contype="1" conaffinity="1" rgba="0.95 0.95 0.30 1"/>
+    </default>
+    <default class="grab">
+      <geom type="mesh" contype="0" conaffinity="0"/>
+      <default class="object_col">
+        <geom type="mesh" contype="1" conaffinity="1" friction="1 0.5 0.01" margin="0.0005" condim="4" rgba=".3 .4 .5 1" group="3"/>
+      </default>
+    </default>
+    <default class="cup_mesh">
+      <mesh scale="1.25 1.25 1.5"/>
+    </default>
+  </default>
+
+  <asset>
+    <material name="box_visual" rgba="0.643 0.322 0.153 1"/>
+  </asset>
+
+  <worldbody>
+
+    <body name="dual_table">
+      <geom type="box" pos="0.9 0.7 -0.05" size="0.6 0.2 0.05" material="table"/>
+    </body>
+
+    <body name="object" pos="0.7 0 0.046">
+      <!-- <inertial pos="0 0 0.016" mass="0.0334234" diaginertia="5.70425e-06 5.70425e-06 5.70425e-06"/> -->
+      <geom name="object_geom" pos="0 0 0" type="box" size="0.025 0.025 0.025" density="1250" rgba="1 0 0 1"/>
+      <freejoint name="object_anchor"/>
+      <site name="object_site" pos="0 0 0" size="0.001" rgba="0 0 0 0"/>
+    </body>
+
+    <body name="box" pos="0.7 0 0.06">
+      <!-- <freejoint name="box_anchor"/> -->
+      <geom name="box_wall1" type="box" pos="0 0.15 0" size="0.16 0.01 0.04" class="box"/>
+      <geom name="box_wall2" type="box" pos="0.15 0 0" size="0.01 0.14 0.04" class="box"/>
+      <geom name="box_wall3" type="box" pos="0 -0.15 0" size="0.16 0.01 0.04" class="box"/>
+      <geom name="box_wall4" type="box" pos="-0.15 0 0" size="0.01 0.14 0.04" class="box"/>
+      <geom name="box_bot" type="box" pos="0 0 -0.05" size="0.16 0.16 0.01" class="box"/>
+      <body name="box_top_link" pos="-0.16 0 0.041" gravcomp="1">
+        <joint name="box_joint" type="hinge" axis="0 1 0" range="-1.77 -0.02" stiffness="0." damping="0.1" frictionloss="1"/>
+        <geom name="box_top" type="box" pos="0.16 0 0.016" size="0.16 0.16 0.015" class="box"/>
+        <geom name="box_top_handle" type="box" pos="0.335 0 0.011" size="0.015 0.16 0.01" rgba="0 1 0 1"/>
+        <site name="box_handle_site" pos="0.335 0 -0.015" size="0.01" rgba="0 0 1 0"/>
+      </body>
+      <site name="wait_site" pos="0 0.3 0.2" size="0.01" rgba="0 0 1 0"/>
+      <site name="open_site" pos="-0.23 0 0.37" size="0.01" rgba="1 0 1 0"/>
+    </body>
+
+  </worldbody>
+
+</mujoco>

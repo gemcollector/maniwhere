@@ -1,0 +1,56 @@
+{
+    "env": "ur5e_push",
+    "xml": "../ur5e/assets/scenes/scene_door.xml",
+    "assets": [
+        "../ur5e/assets/scenes/basic_scene.xml",
+        "../ur5e/assets/universal_robots_ur5e/ur5e_with_hand.xml",
+        "../ur5e/assets/scenes/assets",
+        "../ur5e/assets/universal_robots_ur5e/assets",
+        "../ur5e/assets/robotiq_2f85/assets"
+    ],
+    "scheduler": {
+        "type": "ExpScheduler",
+        "gamma": 0.995,
+        "latency": 150
+    },
+    "control_params": {
+        "action_delay": {
+            "min_val": 0,
+            "max_val": 2,
+            "enable": false
+        },
+        "control_timestep": {
+            "min_val": 0.016,
+            "max_val": 0.024,
+            "enable": false
+        }
+    },
+    "physics_params": {
+        "camera": [
+            {
+                "identifier": "angled_cam",
+                "attr": "pos",
+                "default_val": [1.809, -0.389, 0.770],
+                "min_val": [1.759, -0.439, 0.720],
+                "max_val": [1.859, -0.339, 0.820],
+                "enable": true
+            },
+            {
+                "identifier": "angled_cam",
+                "attr": "xyaxes",
+                "default_val": [0.288, 0.958, -0.000, -0.399, 0.120, 0.909],
+                "min_coff": 0.95,
+                "max_coff": 1.05,
+                "enable": true
+            },
+            {
+                "identifier": "angled_cam",
+                "attr": "fovy",
+                "default_val": 42,
+                "min_val": 39,
+                "max_val": 45,
+                "enable": true
+            }
+        ]
+    }
+}

@@ -1,0 +1,5 @@
+defaults:
+  - medium1
+  - _self_
+
+task_name: franka_bowl_dex

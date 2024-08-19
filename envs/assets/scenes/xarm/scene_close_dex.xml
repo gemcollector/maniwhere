@@ -1,0 +1,46 @@
+<mujoco model="xarm_bowl_dex_scene">
+  
+  <include file="basic_scene.xml"/>
+  <include file="xarm6_with_leap.xml"/>
+
+  <option cone="elliptic" impratio="100"/>
+  <size njmax="500" nconmax="100" />
+
+  <asset>
+    <material name="laptop" rgba="0.2 0.2 0.2 1" specular="0.5" shininess="1"/>
+  </asset>
+
+  <default>
+    <default class="box">
+      <geom type="box" contype="1" conaffinity="1" material="box"/>
+    </default>
+    <default class="grab">
+      <geom type="mesh" density="100" solimp="0.998 0.998 0.001" solref="0.001 1" friction="0.95 0.3 0.1"/>
+    </default>
+  </default>
+
+  <worldbody>
+
+    <body name="viewpoint" pos="0 -0.2 0.1">
+      <site size="0.05" rgba="1 1 0 0"/>
+    </body>
+
+    <camera name="fix_cam" mode="targetbody" target="viewpoint" pos="0.9 0.42 0.5" fovy="42"/>
+    <camera name="track_cam" mode="targetbody" target="viewpoint" pos="0.9 0.42 0.5" fovy="42"/>
+
+    <body name="laptop" pos="0 -0.1 0">
+      <!-- <geom class="grab" pos="0 0 0.015" size="0.2 0.15 0.015" type="box"/> -->
+      <geom class="grab" pos="0 0 0.015" size="0.155 0.10 0.015" type="box" material="laptop"/>
+      <!-- <body name="laptop_link" pos="0 0.151 0.031" gravcomp="1"> -->
+      <body name="laptop_link" pos="0 0.101 0.031" gravcomp="1">
+        <joint name="laptop_joint" type="hinge" axis="1 0 0" range="-0.3 1.57" stiffness="0." damping="2" frictionloss="5"/>
+        <!-- <geom class="grab" pos="0 0.01 0.15" size="0.2 0.01 0.15" type="box" mass=".05"/> -->
+        <geom class="grab" name="laptop_screen" pos="0 0.01 0.1" size="0.155 0.01 0.10" type="box" mass=".05" material="laptop"/>
+        <site rgba="0 0 1 0" size="0.01" pos="0 0.05 0.14" name="laptop_site"/>
+        <site rgba="0 0 1 0" size="0.01" pos="0 -0.09 0.25" name="laptop_hand_site"/>
+      </body>
+    </body>
+
+  </worldbody>
+
+</mujoco>

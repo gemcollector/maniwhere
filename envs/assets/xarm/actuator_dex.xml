@@ -1,0 +1,28 @@
+<mujocoinclude>
+  <actuator>
+    <!-- xarm actuators -->
+    <general name="arm_actuator_1" joint="joint1" class="size1" ctrlrange="-6.28319 6.28319"/>
+    <general name="arm_actuator_2" joint="joint2" class="size1" ctrlrange="-2.059 2.0944"/>
+    <general name="arm_actuator_3" joint="joint3" class="size2" ctrlrange="-3.927 0.19198"/>
+    <general name="arm_actuator_4" joint="joint4" class="size2" ctrlrange="-6.28319 6.28319"/>
+    <general name="arm_actuator_5" joint="joint5" class="size3" ctrlrange="-1.69297 3.14159"/>
+    <general name="arm_actuator_6" joint="joint6" class="size3" ctrlrange="-6.28319 6.28319"/>
+    <!-- leap actuators -->
+    <position name="ff_0" joint="0" class="base" />
+    <position name="ff_1" joint="1" class="proximal" />
+    <position name="ff_2" joint="2" class="medial" />
+    <position name="ff_3" joint="3" class="distal" />
+    <position name="mf_0" joint="4" class="base" />
+    <position name="mf_1" joint="5" class="proximal"/>
+    <position name="mf_2" joint="6" class="medial" />
+    <position name="mf_3" joint="7" class="distal" />
+    <position name="rf_0" joint="8" class="base" />
+    <position name="rf_1" joint="9" class="proximal" />
+    <position name="rf_2" joint="10" class="medial" />
+    <position name="rf_3" joint="11" class="distal" />
+    <position name="th_0" joint="13" class="th_proximal" />
+    <position name="th_1" joint="12" class="th_base" />
+    <position name="th_2" joint="14" class="th_medial" />
+    <position name="th_3" joint="15" class="th_distal" />
+  </actuator>
+</mujocoinclude>

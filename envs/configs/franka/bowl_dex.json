@@ -1,0 +1,174 @@
+{
+    "env": "franka_bowl_dex",
+    "xml": "assets/scenes/franka/scene_bowl_dex.xml",
+    "assets": [
+        "assets/scenes/franka/basic_scene.xml",
+        "assets/franka_emika_panda/panda_with_dex_old.xml",
+        "assets/scenes/assets",
+        "assets/scenes/assets/apple",
+        "assets/scenes/assets/bowl",
+        "assets/scenes/assets/plate",
+        "assets/franka_emika_panda/assets",
+        "assets/wonik_allegro/assets"
+    ],
+    "scheduler": {
+        "type": "ExpScheduler",
+        "gamma": 0.995,
+        "latency": 300
+    },
+    "control_params": {
+        "action_delay": {
+            "min_val": 0,
+            "max_val": 2,
+            "enable": false
+        },
+        "control_timestep": {
+            "min_val": 0.016,
+            "max_val": 0.024,
+            "enable": false
+        }
+    },
+    "physics_params": {
+        "joint": [
+            {
+                "identifier": [
+                    "joint1", "joint2", "joint3", "joint4", 
+                    "joint5", "joint6", "joint7"
+                ],
+                "attr": "armature",
+                "default_val": 0.1,
+                "min_coff": 0.9,
+                "max_coff": 1.1,
+                "consistent": true
+            },
+            {
+                "identifier": [
+                    "joint1", "joint2", "joint3", "joint4", 
+                    "joint5", "joint6", "joint7"
+                ],
+                "attr": "damping",
+                "default_val": 1,
+                "min_coff": 0.9,
+                "max_coff": 1.1,
+                "consistent": true
+            }
+        ],
+        "material": [
+            {
+                "identifier": "white",
+                "attr": "rgba",
+                "default_val": [1, 1, 1, 1],
+                "min_val": [0.85, 0.85, 0.85, 1],
+                "max_val": [1, 1, 1, 1]
+            },
+            {
+                "identifier": "off_white",
+                "attr": "rgba",
+                "default_val": [0.901961, 0.921569, 0.929412, 1],
+                "min_val": [0.8, 0.8, 0.8, 1],
+                "max_val": [1, 1, 1, 1]
+            },
+            {
+                "identifier": "dark_grey",
+                "attr": "rgba",
+                "default_val": [0.25, 0.25, 0.25, 1],
+                "min_val": [0.15, 0.15, 0.15, 1],
+                "max_val": [0.35, 0.35, 0.35, 1]
+            },
+            {
+                "identifier": "green",
+                "attr": "rgba",
+                "default_val": [0, 1, 0, 1],
+                "min_val": [0.35, 0.6, 0.7, 1],
+                "max_val": [0.55, 0.8, 0.9, 1]
+            },
+            {
+                "identifier": "light_blue",
+                "attr": "rgba",
+                "default_val": [0.039216, 0.541176, 0.780392, 1],
+                "min_val": [0.0, 0.45, 0.75, 1],
+                "max_val": [0.1, 0.65, 0.85, 1]
+            },
+            {
+                "identifier": [
+                    "dex_black", "palm_black", "base_black",
+                    "proximal_black", "medial_black", "distal_black"
+                ],
+                "attr": "rgba",
+                "default_val": [0.2, 0.2, 0.2, 1],
+                "min_val": [0, 0, 0, 1],
+                "max_val": [0.4, 0.4, 0.4, 1],
+                "consistent": false
+            },
+            {
+                "identifier": "dex_white",
+                "attr": "rgba",
+                "default_val": [0.9, 0.9, 0.9, 1],
+                "min_val": [0.75, 0.75, 0.75, 1],
+                "max_val": [1, 1, 1, 1]
+            },
+            {
+                "identifier": "table",
+                "attr": "rgba",
+                "default_val": [0.12, 0.3, 0.26, 1],
+                "min_val": [0.06, 0.15, 0.13, 1],
+                "max_val": [0.4, 0.55, 0.39, 1],
+                "schedule": false,
+                "enable": false
+            },
+            {
+                "identifier": "wall",
+                "attr": "rgba",
+                "default_val": [1, 1, 1, 1],
+                "min_val": [0.3, 0.3, 0.3, 1],
+                "max_val": [1, 1, 1, 1],
+                "schedule": false,
+                "enable": false
+            }
+        ],
+        "geom": [
+            {
+                "identifier": "object_box",
+                "attr": "size",
+                "default_val": [0.05, 0.05, 0.05],
+                "min_coff": 0.9,
+                "max_coff": 1.1,
+                "enable": true
+            }
+        ],
+        "camera": [
+            {
+                "identifier": "track_cam",
+                "attr": "pos",
+                "mode": "circle",
+                "initial_point": [1.9, 0, 0.75],
+                "circle_center": [0.6, 0.0, 0.2],
+                "default_val": [0, 0, 1],
+                "min_val": [-60, -12.5, 0.8],
+                "max_val": [60, 7.5, 1.1],
+                "schedule": false,
+                "enable": true
+            },
+            {
+                "identifier": "track_cam",
+                "attr": "fovy",
+                "default_val": 42,
+                "min_val": 38,
+                "max_val": 46,
+                "schedule": false,
+                "enable": true
+            }
+        ],
+        "body": [
+            {
+                "identifier": "viewpoint",
+                "attr": "pos",
+                "default_val": [0.6, 0.0, 0.2],
+                "min_val": [0.52, -0.08, 0.15],
+                "max_val": [0.68, 0.08, 0.3],
+                "schedule": false,
+                "enable": true
+            }
+        ]
+    }
+}

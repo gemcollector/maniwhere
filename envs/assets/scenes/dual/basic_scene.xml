@@ -1,0 +1,77 @@
+<mujoco model="basic_scene">
+
+  <compiler angle="radian" meshdir="assets" texturedir="assets" autolimits="true"/>
+
+  <statistic center="0.3 0 0.4" extent="0.8"/>
+
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.1 0.1 0.1" specular="0 0 0"/>
+    <rgba haze="0.15 0.25 0.35 1"/>
+    <global azimuth="120" elevation="-20"/>
+  </visual>
+
+  <default>
+    <default class="visual_scene">
+      <geom contype="0" conaffinity="0"/>
+    </default>
+  </default>
+
+  <asset>
+    <mesh name="table_top" scale="1.25 1.67 10" file="table_top.STL"/>
+    <mesh name="table_leg" scale="1.25 1.67 1" file="table_leg.STL"/>
+    <texture type="2d" name="floor" file="floor.png" />
+    <texture type="2d" name="wood" file="wood.png" />
+    <!-- <texture type="cube" name="flower" file="flower1.png" /> -->
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512"
+        height="3072"/>
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4"
+        rgb2="0.1 0.2 0.3" markrgb="0.8 0.8 0.8" width="300" height="300"/>
+    <texture name="grid" type="2d" builtin="checker" rgb1=".1 .2 .3" rgb2=".2 .3 .4"
+        width="300" height="300" mark="edge" markrgb=".2 .3 .4"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5"
+        reflectance="0.2"/>
+    <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".2"/>
+    <material name="table" rgba="0.12 0.3 0.26 1"/>
+    <!-- <material name="wall" rgba="0.1 0.1 0.1 1"/> -->
+    <material name="wall" rgba="1 1 1 1"/>
+    <material name="floor" texture="floor"/>
+    <material name="wood" texture="wood"/>
+    <!-- <material name="table" texture="flower"/> -->
+    <material name="seat_mat" rgba="0.533 0.529 0.514 1" specular="0.5" shininess="0.25"/>
+  </asset>
+
+  <worldbody>
+    <light pos="0.6 -0.1 1.5" dir="0 0.3 -1" directional="true" castshadow="false"/>
+    
+    <geom name="floor" size="0 0 0.05" pos="0 0 -0.75" type="plane" material="floor"/>
+    
+    <geom name="wall1" size="2 2 0.005" pos="-0.2 0 0" type="box" quat="0 1 0 1" material="wall"/>
+    <geom name="wall2" size="2 2 0.005" pos="0 1.2 0" type="box" euler="1.57 0 0" material="wall"/>
+    <geom name="wall3" size="2 2 0.005" pos="1.8 0 0" type="box" quat="0 1 0 1" material="wall"/>
+    <!-- <geom name="wall3" size="2 2 0.005" pos="0 -0.55 0" type="box" euler="1.57 -1.0 0" material="wall"/> -->
+
+    <!-- The desktop plane is at z=0, back edge is at x=0 -->
+    <body name="table" pos="0.75 0 -0.04">
+      <!-- <geom name="table_top_col" type="box" pos="0 0 0" size="0.75 0.5 0.04" rgba="0 0 0 0"/> -->
+      <!-- <body name="small_table_body" pos="0.15 0 0.12">
+        <geom name="small_table" type="box" pos="0 0 0" size="0.6 0.5 0.04" material="table"/>
+      </body> -->
+      <geom name="table_top_col" type="box" pos="0 0 0" size="0.75 0.5 0.04" rgba="0 0 0 0"/>
+      <geom type="mesh" mesh="table_top" pos="0 0 -0.36" material="table" class="visual_scene"/>
+      <geom type="mesh" mesh="table_leg" rgba="0.533 0.529 0.514 1" class="visual_scene"/>
+      <body name='seat' pos="-0.65 0 0.04">
+        <geom type="box" pos="0.04 0 0.0075" size="0.14 0.12 0.0075" material="seat_mat" class="visual_scene"/>
+        <geom type="box" pos="0.04 0 0.001" size="0.14 0.5 0.001" material="seat_mat" class="visual_scene"/>
+      </body>
+    </body>
+
+    <body name="viewpoint" pos="0.6 0.0 0.2">
+      <!-- <geom type="box" pos="0 0 0" size="0.1 0.2 0.3" rgba="1 1 0 1"/> -->
+    </body>
+
+    <camera name="fix_cam" mode="targetbody" target="viewpoint" pos="0.6 -1.2 0.65" fovy="42"/>
+    <camera name="track_cam" mode="targetbody" target="viewpoint" pos="0.6 -1.2 0.65" fovy="42"/>
+
+  </worldbody>
+
+</mujoco>

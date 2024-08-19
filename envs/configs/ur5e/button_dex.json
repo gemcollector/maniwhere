@@ -1,0 +1,68 @@
+{
+    "env": "ur5e_button_dex",
+    "xml": "assets/scenes/ur5e/scene_button_dex.xml",
+    "assets": [
+        "assets/scenes/ur5e/basic_scene.xml",
+        "assets/universal_robots_ur5e/ur5e_with_dex.xml",
+        "assets/scenes/assets",
+        "assets/universal_robots_ur5e/assets",
+        "assets/wonik_allegro/assets"
+    ],
+    "scheduler": {
+        "type": "ConstantScheduler",
+        "gamma": 1
+    },
+    "control_params": {
+        "action_delay": {
+            "min_val": 0,
+            "max_val": 2,
+            "enable": false
+        },
+        "control_timestep": {
+            "min_val": 0.016,
+            "max_val": 0.024,
+            "enable": false
+        }
+    },
+    "physics_params": {
+        "body": [
+            {
+                "identifier": "viewpoint",
+                "attr": "euler",
+                "default_val": [0, 0, 0],
+                "min_val": [0, 0, 0],
+                "max_val": [0, 0, 0],
+                "enable": false
+            }
+        ],
+        "camera": [
+            {
+                "identifier": "track_cam",
+                "attr": "pos",
+                "mode": "circle",
+                "initial_point": [1.9, 0, 0.75],
+                "circle_center": [0.6, 0.0, 0.2],
+                "default_val": [0, 0],
+                "min_val": [-60, -12.5],
+                "max_val": [60, 7.5],
+                "enable": true
+            },
+            {
+                "identifier": "track_cam",
+                "attr": "fovy",
+                "default_val": 42,
+                "min_val": 39,
+                "max_val": 45,
+                "enable": true
+            },
+            {
+                "identifier": "track_cam",
+                "attr": "euler",
+                "default_val": [0, 0, 0],
+                "min_val": [0, 0, 0],
+                "max_val": [0, 0, 0],
+                "enable": false
+            }
+        ]
+    }
+}

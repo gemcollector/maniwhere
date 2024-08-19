@@ -1,0 +1,107 @@
+<mujoco model="franka_lift_dex_scene">
+
+  <include file="basic_scene.xml"/>
+  <include file="panda_with_dex.xml"/>
+
+  <option impratio="1">
+    <flag multiccd="enable"/>
+  </option>
+
+  <default>
+    <default class="grab">
+      <geom type="mesh" contype="0" conaffinity="0"/>
+      <default class="object_col">
+        <geom type="mesh" contype="1" conaffinity="1" friction="1 0.5 0.01" margin="0.0005" condim="4" rgba=".3 .4 .5 1" group="3"/>
+      </default>
+    </default>
+    <default class="cup_mesh">
+      <mesh scale="1.25 1.25 1.5"/>
+    </default>
+  </default>
+
+  <asset>
+    <mesh name="cup" file="../assets/cup/cup.stl" class="cup_mesh"/>
+    <mesh name="cup_contact0" file="../assets/cup/contact0.stl" class="cup_mesh"/>
+    <mesh name="cup_contact1" file="../assets/cup/contact1.stl" class="cup_mesh"/>
+    <mesh name="cup_contact2" file="../assets/cup/contact2.stl" class="cup_mesh"/>
+    <mesh name="cup_contact3" file="../assets/cup/contact3.stl" class="cup_mesh"/>
+    <mesh name="cup_contact4" file="../assets/cup/contact4.stl" class="cup_mesh"/>
+    <mesh name="cup_contact5" file="../assets/cup/contact5.stl" class="cup_mesh"/>
+    <mesh name="cup_contact6" file="../assets/cup/contact6.stl" class="cup_mesh"/>
+    <mesh name="cup_contact7" file="../assets/cup/contact7.stl" class="cup_mesh"/>
+    <mesh name="cup_contact8" file="../assets/cup/contact8.stl" class="cup_mesh"/>
+    <mesh name="cup_contact9" file="../assets/cup/contact9.stl" class="cup_mesh"/>
+    <mesh name="cup_contact10" file="../assets/cup/contact10.stl" class="cup_mesh"/>
+    <mesh name="cup_contact11" file="../assets/cup/contact11.stl" class="cup_mesh"/>
+
+    <mesh name="bowl" file="../assets/bowl/bowl.stl"/>
+    <mesh name="bowl_contact0" file="../assets/bowl/contact0.stl"/>
+    <mesh name="bowl_contact1" file="../assets/bowl/contact1.stl"/>
+    <mesh name="bowl_contact2" file="../assets/bowl/contact2.stl"/>
+    <mesh name="bowl_contact3" file="../assets/bowl/contact3.stl"/>
+    <mesh name="bowl_contact4" file="../assets/bowl/contact4.stl"/>
+    <mesh name="bowl_contact5" file="../assets/bowl/contact5.stl"/>
+    <mesh name="bowl_contact6" file="../assets/bowl/contact6.stl"/>
+    <mesh name="bowl_contact7" file="../assets/bowl/contact7.stl"/>
+    <mesh name="bowl_contact8" file="../assets/bowl/contact8.stl"/>
+    <mesh name="bowl_contact9" file="../assets/bowl/contact9.stl"/>
+    <mesh name="bowl_contact10" file="../assets/bowl/contact10.stl"/>
+    <mesh name="bowl_contact11" file="../assets/bowl/contact11.stl"/>
+
+    <material name="bowl_visual" rgba="0.65 0.65 0.55 1" specular="0.5" shininess="0.5"/>
+    <!-- <material name="bowl_visual" rgba="1 1 1 0.08" specular="0.5" shininess="0.5"/> -->
+
+    <!-- <material name="bowl_visual" rgba="0.65 0.65 0.55 0.1" specular="0.5" shininess="0.5"/> -->
+    <material name="cup_visual" rgba="1 0.75 0.8 1"/>
+  </asset>
+
+  <worldbody>
+    <body name="object" pos="0.9 0.1 0.201">
+      <freejoint name="object_anchor"/>
+      <!-- <geom type="box" size="0.055 0.055 0.075" rgba="0.5 0.5 0.5 0.2"/> -->
+      <geom name="cup_visual" mesh="cup" material="cup_visual" class="grab" density="10"/>
+      <geom name="cup_contact0" mesh="cup_contact0" class="object_col" density="10"/>
+      <geom name="cup_contact1" mesh="cup_contact1" class="object_col" density="10"/>
+      <geom name="cup_contact2" mesh="cup_contact2" class="object_col" density="10"/>
+      <geom name="cup_contact3" mesh="cup_contact3" class="object_col" density="10"/>
+      <geom name="cup_contact4" mesh="cup_contact4" class="object_col" density="10"/>
+      <geom name="cup_contact5" mesh="cup_contact5" class="object_col" density="10"/>
+      <geom name="cup_contact6" mesh="cup_contact6" class="object_col" density="10"/>
+      <geom name="cup_contact7" mesh="cup_contact7" class="object_col" density="10"/>
+      <geom name="cup_contact8" mesh="cup_contact8" class="object_col" density="10"/>
+      <geom name="cup_contact9" mesh="cup_contact9" class="object_col" density="10"/>
+      <geom name="cup_contact10" mesh="cup_contact10" class="object_col" density="10"/>
+      <geom name="cup_contact11" mesh="cup_contact11" class="object_col" density="10"/>
+      
+      <site name="object_site" pos="0 0 0" size="0.011" rgba="0 0 1 0"/>
+    </body>
+
+    <body name="bowl" pos="0.8 -0.15 0.171">
+      <freejoint name="bowl_anchor"/>
+      <!-- <geom type="box" size="0.07 0.07 0.035" rgba="0.5 0.5 0.5 0.2"/> -->
+      <geom name="bowl_visual" mesh="bowl" class="grab" material="bowl_visual"/>
+      <geom name="bowl_contact0" mesh="bowl_contact0" class="object_col"/>
+      <geom name="bowl_contact1" mesh="bowl_contact1" class="object_col"/>
+      <geom name="bowl_contact2" mesh="bowl_contact2" class="object_col"/>
+      <geom name="bowl_contact3" mesh="bowl_contact3" class="object_col"/>
+      <geom name="bowl_contact4" mesh="bowl_contact4" class="object_col"/>
+      <geom name="bowl_contact5" mesh="bowl_contact5" class="object_col"/>
+      <geom name="bowl_contact6" mesh="bowl_contact6" class="object_col"/>
+      <geom name="bowl_contact7" mesh="bowl_contact7" class="object_col"/>
+      <geom name="bowl_contact8" mesh="bowl_contact8" class="object_col"/>
+      <geom name="bowl_contact9" mesh="bowl_contact9" class="object_col"/>
+      <geom name="bowl_contact10" mesh="bowl_contact10" class="object_col"/>
+      <geom name="bowl_contact11" mesh="bowl_contact11" class="object_col"/>
+
+      <site name="bowl_site" pos="0 0 0" size="0.011" rgba="0 0 1 0"/>
+      <site name="target_site" pos="0.09 0.09 0.15" size="0.05" rgba="0 1 0 1"/>
+    </body>
+
+    <composite prefix="particle" type="particle" offset="0.9 0.1 0.2" count="2 2 4" spacing="0.022">
+      <geom size=".01" rgba=".8 .2 .1 1" density="1"/>
+      <joint kind="main"/>
+    </composite>
+
+  </worldbody>
+
+</mujoco>

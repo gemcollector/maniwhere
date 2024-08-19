@@ -1,0 +1,131 @@
+<mujoco model="ur5e_push_scene">
+
+  <include file="basic_scene.xml"/>
+  <include file="panda_with_dex.xml"/>
+
+  <option impratio="10"/>
+
+  <default>
+    <default class="grab">
+      <joint limited="false" margin="0.01" armature="0.001" damping="0" frictionloss="0.001" />
+      <geom type="mesh" contype="0" conaffinity="0" density="50"/>
+      <!-- <site size="0.005 0 0" rgba="0.4 0.9 0.4 1" /> -->
+      <default class="object_col">
+        <geom type="mesh" density="50" contype="1" conaffinity="1" friction="1 0.5 0.01" margin="0.0005" condim="4" rgba=".3 .4 .5 1" group="3"/>
+      </default>
+    </default>
+  </default>
+
+  <asset>
+    <mesh name="plate" file="plate.obj" scale="0.0015 0.0015 0.0015"/>
+    <mesh name="plate_collision0" file="plate_collision_0.obj" scale="0.0015 0.0015 0.0015"/>
+    <mesh name="plate_collision1" file="plate_collision_1.obj" scale="0.0015 0.0015 0.0015"/>
+    <mesh name="plate_collision2" file="plate_collision_2.obj" scale="0.0015 0.0015 0.0015"/>
+    <mesh name="plate_collision3" file="plate_collision_3.obj" scale="0.0015 0.0015 0.0015"/>
+    <mesh name="plate_collision4" file="plate_collision_4.obj" scale="0.0015 0.0015 0.0015"/>
+    <mesh name="plate_collision5" file="plate_collision_5.obj" scale="0.0015 0.0015 0.0015"/>
+    <mesh name="plate_collision6" file="plate_collision_6.obj" scale="0.0015 0.0015 0.0015"/>
+    <mesh name="plate_collision7" file="plate_collision_7.obj" scale="0.0015 0.0015 0.0015"/>
+    <mesh name="plate_collision8" file="plate_collision_8.obj" scale="0.0015 0.0015 0.0015"/>
+    <mesh name="plate_collision9" file="plate_collision_9.obj" scale="0.0015 0.0015 0.0015"/>
+    <mesh name="plate_collision10" file="plate_collision_10.obj" scale="0.0015 0.0015 0.0015"/>
+    <mesh name="plate_collision11" file="plate_collision_11.obj" scale="0.0015 0.0015 0.0015"/>
+    <mesh name="plate_collision12" file="plate_collision_12.obj" scale="0.0015 0.0015 0.0015"/>
+    <mesh name="plate_collision13" file="plate_collision_13.obj" scale="0.0015 0.0015 0.0015"/>
+    <mesh name="plate_collision14" file="plate_collision_14.obj" scale="0.0015 0.0015 0.0015"/>
+    <mesh name="plate_collision15" file="plate_collision_15.obj" scale="0.0015 0.0015 0.0015"/>
+
+    <mesh name="bowl" file="bowl.stl"/>
+    <mesh name="bowl_contact0" file="contact0.stl"/>
+    <mesh name="bowl_contact1" file="contact1.stl"/>
+    <mesh name="bowl_contact2" file="contact2.stl"/>
+    <mesh name="bowl_contact3" file="contact3.stl"/>
+    <mesh name="bowl_contact4" file="contact4.stl"/>
+    <mesh name="bowl_contact5" file="contact5.stl"/>
+    <mesh name="bowl_contact6" file="contact6.stl"/>
+    <mesh name="bowl_contact7" file="contact7.stl"/>
+    <mesh name="bowl_contact8" file="contact8.stl"/>
+    <mesh name="bowl_contact9" file="contact9.stl"/>
+    <mesh name="bowl_contact10" file="contact10.stl"/>
+    <mesh name="bowl_contact11" file="contact11.stl"/>
+
+    <material name="plate_visual" rgba="0.65 0.65 0.55 1" specular="0.5" shininess="0.5"/>
+    <material name="bowl_visual" rgba="0.65 0.65 0.55 1" specular="0.5" shininess="0.5"/>
+    <!-- <material name="bowl_visual" rgba="1 1 1 0.15"/> -->
+    <material name="apple_visual" rgba="0.73 0.16 0.16 1"/>
+  </asset>
+
+  <worldbody>
+    
+
+    <body name="bowl_top" pos="0.8 0.15 0.151">
+      <freejoint name="bowl_top_anchor"/>
+      <geom name="bowl_top_visual" mesh="bowl" class="grab" material="apple_visual"/>
+      <geom name="bowl_top_contact0" mesh="bowl_contact0" class="object_col"/>
+      <geom name="bowl_top_contact1" mesh="bowl_contact1" class="object_col"/>
+      <geom name="bowl_top_contact2" mesh="bowl_contact2" class="object_col"/>
+      <geom name="bowl_top_contact3" mesh="bowl_contact3" class="object_col"/>
+      <geom name="bowl_top_contact4" mesh="bowl_contact4" class="object_col"/>
+      <geom name="bowl_top_contact5" mesh="bowl_contact5" class="object_col"/>
+      <geom name="bowl_top_contact6" mesh="bowl_contact6" class="object_col"/>
+      <geom name="bowl_top_contact7" mesh="bowl_contact7" class="object_col"/>
+      <geom name="bowl_top_contact8" mesh="bowl_contact8" class="object_col"/>
+      <geom name="bowl_top_contact9" mesh="bowl_contact9" class="object_col"/>
+      <geom name="bowl_top_contact10" mesh="bowl_contact10" class="object_col"/>
+      <geom name="bowl_top_contact11" mesh="bowl_contact11" class="object_col"/>
+
+      <site name="bowl_top_site" pos="0 0 0.03" size="0.01" rgba="0 0 0 0"/>
+    </body>
+
+    <body name="bowl_bottom" pos="0.8 -0.15 0.151">
+      <freejoint name="bowl_bottom_anchor"/>
+      <geom name="bowl_bottom_visual" mesh="bowl" class="grab" material="bowl_visual"/>
+      <geom name="bowl_bottom_contact0" mesh="bowl_contact0" class="object_col"/>
+      <geom name="bowl_bottom_contact1" mesh="bowl_contact1" class="object_col"/>
+      <geom name="bowl_bottom_contact2" mesh="bowl_contact2" class="object_col"/>
+      <geom name="bowl_bottom_contact3" mesh="bowl_contact3" class="object_col"/>
+      <geom name="bowl_bottom_contact4" mesh="bowl_contact4" class="object_col"/>
+      <geom name="bowl_bottom_contact5" mesh="bowl_contact5" class="object_col"/>
+      <geom name="bowl_bottom_contact6" mesh="bowl_contact6" class="object_col"/>
+      <geom name="bowl_bottom_contact7" mesh="bowl_contact7" class="object_col"/>
+      <geom name="bowl_bottom_contact8" mesh="bowl_contact8" class="object_col"/>
+      <geom name="bowl_bottom_contact9" mesh="bowl_contact9" class="object_col"/>
+      <geom name="bowl_bottom_contact10" mesh="bowl_contact10" class="object_col"/>
+      <geom name="bowl_bottom_contact11" mesh="bowl_contact11" class="object_col"/>
+
+      <site name="bowl_bottom_site" pos="0 0 0.03" size="0.01" rgba="0 0 0 0"/>
+    </body>
+
+    <!-- <body name="plate" pos="0.8 -0.15 0.171" euler="1.57 0 0">
+      <freejoint name="bowl_anchor"/>
+      <geom name="plate_visual" mesh="plate" class="grab" material="plate_visual"/>
+      <geom name="plate_bot_visual" class="grab" euler="1.57 0 0" pos="0 -0.012 0" type="cylinder" size="0.11 0.001" material="plate_visual"/>
+      <geom name="plate_collision0" mesh="plate_collision0" class="object_col"/>
+      <geom name="plate_collision1" mesh="plate_collision1" class="object_col"/>
+      <geom name="plate_collision2" mesh="plate_collision2" class="object_col"/>
+      <geom name="plate_collision3" mesh="plate_collision3" class="object_col"/>
+      <geom name="plate_collision4" mesh="plate_collision4" class="object_col"/>
+      <geom name="plate_collision5" mesh="plate_collision5" class="object_col"/>
+      <geom name="plate_collision6" mesh="plate_collision6" class="object_col"/>
+      <geom name="plate_collision7" mesh="plate_collision7" class="object_col"/>
+      <geom name="plate_collision8" mesh="plate_collision8" class="object_col"/>
+      <geom name="plate_collision9" mesh="plate_collision9" class="object_col"/>
+      <geom name="plate_collision10" mesh="plate_collision10" class="object_col"/>
+      <geom name="plate_collision11" mesh="plate_collision11" class="object_col"/>
+      <geom name="plate_collision12" mesh="plate_collision12" class="object_col"/>
+      <geom name="plate_collision13" mesh="plate_collision13" class="object_col"/>
+      <geom name="plate_collision14" mesh="plate_collision14" class="object_col"/>
+      <geom name="plate_collision15" mesh="plate_collision15" class="object_col"/>
+
+      <site name="bowl_site" pos="0 0.03 0" size="0.01" rgba="0 0 1 0"/>
+    </body> -->
+
+    <!-- <body name="object" pos="0.8 0 0.171">
+      <geom name="object_box" pos="0 0 0" type="box" size="0.05 0.05 0.05" density="10" rgba="1 0 0 1"/>
+      <freejoint name="object_anchor"/>
+      <site name="object_site" pos="0 0 0" size="0.011" rgba="0 0 1 0"/>
+    </body> -->
+
+  </worldbody>
+
+</mujoco>

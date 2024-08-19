@@ -1,0 +1,22 @@
+<mujoco model="ur5e_push_scene">
+
+  <include file="basic_scene.xml"/>
+  <include file="ur5e_with_hand.xml"/>
+
+  <worldbody>
+
+    <body name="object" pos="0.8 0 0.026">
+      <!-- <inertial pos="0 0 0.016" mass="0.0334234" diaginertia="5.70425e-06 5.70425e-06 5.70425e-06"/> -->
+      <geom name="object_box" pos="0 0 0" type="box" size="0.025 0.025 0.025" density="1250" rgba="0 0 1 1"/>
+      <freejoint name="object_anchor"/>
+      <site name="object_site" pos="0 0 0" size="0.001" rgba="0 0 0 0"/>
+    </body>
+
+    <body name="target" pos="0.7 0 0.025">
+      <geom name="target_box" class="visual_scene" pos="0 0 -0.024" type="box" size="0.025 0.025 0.001" rgba="1 0 0 1"/>
+      <site name="target_site" pos="0 0 0" size="0.001" rgba="0 0 0 0" />
+    </body>
+
+  </worldbody>
+
+</mujoco>

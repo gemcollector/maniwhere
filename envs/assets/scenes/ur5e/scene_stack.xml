@@ -1,0 +1,25 @@
+<mujoco model="ur5e_stack_scene">
+
+  <include file="basic_scene.xml"/>
+  <include file="ur5e_with_hand.xml"/>
+
+  <option impratio="100"/>
+
+  <worldbody>
+
+    <body name="top" pos="0.6 0 0.026">
+      <!-- <inertial pos="0 0 0.016" mass="0.0334234" diaginertia="5.70425e-06 5.70425e-06 5.70425e-06"/> -->
+      <geom name="top_box" pos="0 0 0" type="box" size="0.025 0.025 0.025" density="1250" rgba="0 0 1 1"/>
+      <freejoint name="top_anchor"/>
+      <site name="top_site" pos="0 0 0" size="0.001" rgba="0 0 0 0"/>
+    </body>
+
+    <body name="bottom" pos="0.8 0 0.026">
+      <!-- <inertial pos="0 0 0.016" mass="0.0334234" diaginertia="5.70425e-06 5.70425e-06 5.70425e-06"/> -->
+      <geom name="bottom_box" pos="0 0 0" type="box" size="0.025 0.025 0.025" density="1250" rgba="1 0 0 1"/>
+      <freejoint name="bottom_anchor"/>
+      <site name="bottom_site" pos="0 0 0" size="0.001" rgba="0 0 0 0"/>
+    </body>
+  </worldbody>
+
+</mujoco>

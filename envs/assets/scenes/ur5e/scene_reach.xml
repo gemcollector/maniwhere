@@ -1,0 +1,17 @@
+<mujoco model="ur5e_reach_scene">
+
+  <include file="basic_scene.xml"/>
+  <include file="ur5e_with_hand.xml"/>
+
+  <worldbody>
+
+    <site name="target" type="cylinder" pos="0.7 0.0 0.001" size="0.04 0.001" rgba="1 0 0 1" />
+  
+  </worldbody>
+
+  <!-- <keyframe>
+    <key name="home" qpos="0 -1.5708 1.5708 -1.5708 -1.5708 0 0 0 0 0 0 0 0 0"
+        ctrl="0 -1.5708 1.5708 -1.5708 -1.5708 0 0"/>
+  </keyframe> -->
+
+</mujoco>

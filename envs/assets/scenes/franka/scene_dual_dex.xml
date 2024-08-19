@@ -1,0 +1,38 @@
+<mujoco model="franka_dual_dex_scene">
+
+  <include file="basic_scene.xml"/>
+  <include file="panda_with_dex_old.xml"/>
+  <include file="panda_dual.xml"/>
+
+  <option cone="elliptic" impratio="100"/>
+
+  <default>
+    <default class="grab">
+      <geom type="mesh" contype="0" conaffinity="0"/>
+      <default class="object_col">
+        <geom type="mesh" contype="1" conaffinity="1" friction="1 0.5 0.01" margin="0.0005" condim="4" rgba=".3 .4 .5 1" group="3"/>
+      </default>
+    </default>
+    <default class="cup_mesh">
+      <mesh scale="1.25 1.25 1.5"/>
+    </default>
+  </default>
+
+  <asset>
+    <material name="box_visual" rgba="0.643 0.322 0.153 1"/>
+  </asset>
+
+  <worldbody>
+    <body name="dual_table">
+      <geom type="box" pos="0.9 0.7 -0.05" size="0.6 0.2 0.05" material="table"/>
+    </body>
+
+    <body name="object" pos="0.75 0.05 0.161">
+      <freejoint name="object_anchor"/>
+      <geom type="box" name="object_box" size="0.01 0.2 0.02" material="box_visual" friction="1 0.5 0.01" margin="0.0005" condim="4" density="10"/>
+      <site name="grasp_site" pos="0 -0.1 0" size="0.05" rgba="0 0 1 0"/>
+    </body>
+
+  </worldbody>
+
+</mujoco>

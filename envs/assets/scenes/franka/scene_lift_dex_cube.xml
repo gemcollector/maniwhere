@@ -1,0 +1,18 @@
+<mujoco model="franka_lift_dex_scene">
+
+  <include file="basic_scene.xml"/>
+  <include file="panda_with_dex_old.xml"/>
+
+  <option impratio="100"/>
+
+  <worldbody>
+    <body name="object" pos="0.8 0 0.171">
+      <!-- <inertial pos="0 0 0.016" mass="0.0334234" diaginertia="5.70425e-06 5.70425e-06 5.70425e-06"/> -->
+      <geom name="object_box" pos="0 0 0" type="box" size="0.05 0.05 0.05" density="10" rgba="1 0 0 1"/>
+      <freejoint name="object_anchor"/>
+      <site name="object_site" pos="0 0 0" size="0.011" rgba="0 0 0 0"/>
+    </body>
+
+  </worldbody>
+
+</mujoco>

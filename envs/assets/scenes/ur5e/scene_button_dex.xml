@@ -1,0 +1,50 @@
+<mujoco model="ur5e_button_scene">
+
+  <include file="basic_scene.xml"/>
+  <include file="ur5e_with_dex.xml"/>
+
+  <default>
+    <default class="buttonbox_base">
+        <joint armature="0.001" damping="2" limited="true"/>
+        <!-- <geom conaffinity="0" contype="0" type="mesh"/> -->
+        <position ctrllimited="true" ctrlrange="0 1.57"/>
+    </default>
+  </default>
+
+  <asset>
+    <material name="btn_red" rgba=".6 0 0 1" shininess="1" reflectance=".7" specular=".5"/>
+    <material name="btn_yellow" rgba=".7 .5 0 1" shininess="1" reflectance=".7" specular=".5"/>
+  </asset>
+
+  <worldbody>
+
+    <body childclass="buttonbox_base" name="buttonbox" pos="0.8 0 0.058" euler="-1.57 0 0">
+
+      <geom material="btn_yellow" pos="0 0.006 0.036" size="0.06 0.051 0.024" type="box"/>
+      <geom material="btn_yellow" pos="0 0.006 -0.036" size="0.06 0.051 0.024" type="box"/>
+      <geom material="btn_yellow" pos="-0.0365 0.006 0" size="0.0235 0.051 0.012" type="box"/>
+      <geom material="btn_yellow" pos="0.0365 0.006 0" size="0.0235 0.051 0.012" type="box"/>
+      
+      <site name="hover_site" pos="0 -0.18 0" size="0.02" rgba="0 1 0 0"/>
+      <site name="btn_site" pos="0 -0.055 0" size="0.02" rgba="0 0 1 0"/>
+
+      <body childclass="buttonbox_base" name="button">
+        <inertial pos="0 -0.09675 0" mass=".01" diaginertia="0.001 0.001 0.001"/>
+        <joint name="btnbox_joint" pos="0 0 0" axis="0 -1 0" type="slide" springref=".5" limited="true" stiffness="0.5" range="-0.03 0" damping="0.5"/>
+
+        <geom material="btn_red" euler="1.57 0 0" pos="0 -0.064 0" size="0.0105 0.0235" type="cylinder"/>
+        <geom material="btn_red" euler="1.57 0 0" pos="0 -0.0915 0" size="0.0215 0.0055" type="cylinder"/>
+        
+        <site name="pushdown_site" pos="0 -0.09 0" size="0.02" rgba="0 1 0 0"/>
+      </body>
+
+    </body>
+
+  </worldbody>
+
+  <!-- <keyframe>
+    <key name="home" qpos="0 -1.5708 1.5708 -1.5708 -1.5708 0 0 0 0 0 0 0 0 0"
+        ctrl="0 -1.5708 1.5708 -1.5708 -1.5708 0 0"/>
+  </keyframe> -->
+
+</mujoco>

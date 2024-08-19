@@ -1,0 +1,12 @@
+<mujocoinclude>
+  <actuator>
+    <position class="size3" name="shoulder_pan" joint="shoulder_pan_joint"/>
+    <position class="size3" name="shoulder_lift" joint="shoulder_lift_joint"/>
+    <position class="size3_limited" name="elbow" joint="elbow_joint"/>
+    <position class="size1" name="wrist_1" joint="wrist_1_joint"/>
+    <position class="size1" name="wrist_2" joint="wrist_2_joint"/>
+    <position class="size1" name="wrist_3" joint="wrist_3_joint"/>
+    <general class="2f85" name="fingers_actuator" tendon="split" forcerange="-5 5"
+      ctrlrange="0 255" gainprm="0.3137255 0 0" biasprm="0 -100 -10"/>
+  </actuator>
+</mujocoinclude>

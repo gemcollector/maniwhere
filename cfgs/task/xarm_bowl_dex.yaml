@@ -1,0 +1,5 @@
+defaults:
+  - medium
+  - _self_
+
+task_name: xarm_bowl_dex
