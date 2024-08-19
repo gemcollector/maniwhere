@@ -14,6 +14,11 @@
 
   *The first two authors contribute equally. 
 
+<div align="center">
+  <img src="maniwhere.png" alt="maniwhere" width="100%">
+</div>
+
+
 # 💻 Installation
 
 ```
@@ -44,7 +49,12 @@ You should modify the  `model_path` in `mani_eval.py` first.
 
 If you find our work useful, please consider citing:
 ```
-Yuan, Zhecheng, et al. "Learning to Manipulate Anywhere: A Visual Generalizable Framework For Reinforcement Learning." arXiv preprint arXiv:2407.15815 (2024).
+@article{yuan2024learning,
+  title={Learning to Manipulate Anywhere: A Visual Generalizable Framework For Reinforcement Learning},
+  author={Yuan, Zhecheng and Wei, Tianming and Cheng, Shuiqi and Zhang, Gu and Chen, Yuanpei and Xu, Huazhe},
+  journal={arXiv preprint arXiv:2407.15815},
+  year={2024}
+}
 ```
 # 🙏 Acknowledgement
 Our code is generally built upon [DrQ-v2](https://github.com/facebookresearch/drqv2). The robot model built upon [mujoco-menagerie](https://github.com/google-deepmind/mujoco_menagerie) . The website is borrowed from  [DP3](). We thank all these authors for their nicely open sourced code and their great contributions to the community.
