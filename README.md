@@ -42,7 +42,7 @@ For evaluation:
 ```
 bash scripts/eval.sh ours
 ```
-You should modify the  `model_path` in `mani_eval.py` first. 
+You should modify the  `model_path` in `mani_eval.py` first. You would better to check the saved video. The recorded success rate might miss some successful trials. 
 
 
 # 📝 Citation
