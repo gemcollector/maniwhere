@@ -111,6 +111,7 @@ class Workspace:
         episode = 0
         eval_until_episode = utils.Until(50)
         success = 0
+        # Must: !!!!If you want to evaluate the success rate of the following tasks, you nee to uncomment the `get_termination` function in task py. !!!!
         success_task_lists = ['xarm_close_dex', 'franka_dual_dex', 'franka_bowl_dex']
 
         while eval_until_episode(episode):

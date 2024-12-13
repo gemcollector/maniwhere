@@ -42,7 +42,7 @@ For evaluation:
 ```
 bash scripts/eval.sh ours
 ```
-You should modify the  `model_path` in `mani_eval.py` first. You would better to check the saved video. The recorded success rate might miss some successful trials. 
+You should modify the  `model_path` in `mani_eval.py` first. You would better to check the saved video. The recorded success rate might miss some successful trials. Meanwhile, you need to uncomment the `get_termination` function in the Python file for the tasks: `['xarm_close_dex', 'franka_dual_dex', 'franka_bowl_dex']` under `envs/tasks/` to serve as evaluation metrics. However, it should remain commented out during training.
 
 
 # 📝 Citation
